@@ -1,0 +1,136 @@
+/** Make bible.com eye friendly**/
+/*Watchout for spaces before* */
+/* Hide everthing not in the main tree*/
+/*Hide controls*/
+/*Hide post content*/
+:root {
+	--higlighted-verse-color: #000008;
+}
+
+*:not(:has(main), main, main*),
+main>div:first-child,
+main>div:nth-child(2)>div:nth-child(2){
+	display: none !important;
+}
+
+
+/*Style main container*/
+*:has(main),
+main {
+	overflow-x: hidden;
+	scrollbar-width: none;
+	margin-bottom: 0px !important;
+	padding: 0px !important;
+
+	background-color: black !important;
+	width: 100vw;
+	height: 100vh;
+}
+
+
+/* Centralized text*/
+div:has([class$="bible-reader"]),
+[class$="bible-text"] {
+	flex-direction: column;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+[class$="bible-reader"] {
+	max-width: 450px !important;
+}
+
+/*Set button position and color*/
+*:has(>div>[aria-label="Next Chapter"]),
+*:has(>div>[aria-label="Próximo Capítulo"]){
+	position: absolute;
+	bottom: 100px !important;
+}
+
+*:has(>div>[aria-label="Next Chapter"]) a>div,
+*:has(>div>[aria-label="Próximo Capítulo"]) a>div {
+	background-color: transparent !important;
+}
+
+/*All text*/
+main span {
+	color: #DDDDDD;
+}
+
+/* Headings*/
+h1 {
+	color: #EEEEEE !important;
+}
+
+main span[class$="label"],
+main span[class$="heading"],
+main div:has(>[class$="heading"]){
+	color: #888888 !important;
+}
+
+/*Disable annoying click popup*/
+/* Outter container*/
+[data-testid="chapter-content"]>div>div:nth-child(2){
+	font-size: 8px !important;
+	max-height: 4em;
+	width: 100%;
+}
+
+[data-testid="chapter-content"]>div>div:nth-child(2)* {
+	padding: 0px !important;
+	margin: 0px !important;
+	border: 0px !important;
+
+	background-color: #040404;
+
+	color: darkgrey;
+}
+
+[data-testid="chapter-content"]>div>div:nth-child(2)>div {
+	--bar-width: 8rem;
+	min-width: var(--bar-width);
+	width: var(--bar-width);
+	;
+
+	border-radius: 0px !important;
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+}
+
+/* Close button*/
+[data-testid="chapter-content"]>div>div:nth-child(2)>div>div:first-child {
+	>button {
+		max-height: 1em;
+		background-color: transparent;
+
+		>svg {
+			background-color: transparent;
+		}
+	}
+}
+
+/* All but copy buttom*/
+[data-testid="chapter-content"]>div>div:nth-child(2)>div>div>div:not(:nth-child(2)){
+	display: none !important;
+}
+
+/* Warnning text */
+[data-testid="chapter-content"]>div>div:nth-child(2)>div>div:nth-child(3),
+[data-testid="chapter-content"]>div>div:nth-child(2)>div>div:nth-child(3)* {
+	display: none !important;
+}
+
+/*Classes for added behaviour*/
+.selectedVerse {
+	border-right: 3px solid white;
+}
+
+/* Restore Vimium link UI*/
+.vimium-reset,
+#vimium-hint-marker-container,
+#vimium-hint-marker-container* {
+	display: revert !important;
+	visibility: visible !important;
+}

@@ -1,0 +1,20 @@
+{
+	"name": "minimalbible",
+	"version": "1.0.0",
+	"description": "",
+	"main": "test.js",
+	"scripts": {
+		"test": "node --test",
+		"watch": "node --test --watch",
+		"build": "esbuild src/index.js --bundle --outfile=build/index.js --platform=browser --format=iife --target=es2020",
+		"clip": "npm run build && node -e \"require('clipboardy').default.writeSync(require('fs').readFileSync('build/index.js', 'utf8'))\""
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "module",
+	"devDependencies": {
+		"clipboardy": "^4.0.0",
+		"esbuild": "^0.25.0"
+	}
+}
